@@ -1,0 +1,13 @@
+HTTP/1.1 204 No Content
+Date: Wed, 19 Feb 2014 20:23:09 GMT
+Cache-Control: max-age=0, no-cache, no-store
+Pragma: no-cache
+Set-Cookie: di="%7B%2211112%22%3A%22530512ac-737b-c684-f89b-a0a644aaf943%22%2C%2211137%22%3A%22AF2824A59A944A5D9C0772707D34C60F%22%7D..1392841388.6MQ|1392841388.429|1392841388.S1Y|1392841388.MVA|1392841388.MV9|1392841388.ARA";Path=/;Domain=.addthis.com;Expires=Fri, 19-Feb-2016 20:23:09 GMT
+Set-Cookie: uid=530512a9d1337ec1;Path=/;Domain=.addthis.com;Expires=Fri, 19-Feb-2016 20:23:09 GMT
+Expires: Thu, 01 Jan 1970 00:00:00 GMT
+Content-Type: image/png
+P3P: policyref="/w3c/p3p.xml", CP="NON ADM OUR DEV IND COM STA"
+Set-Cookie: di=deleted;Expires=Thu, 01-Jan-1970 00:00:00 GMT
+Set-Cookie: uid=deleted;Expires=Thu, 01-Jan-1970 00:00:00 GMT
+Connection: close
+

@@ -1,0 +1,12 @@
+HTTP/1.0 204 No Content
+Pragma: no-cache
+Cache-Control: private, no-cache
+Expires: Wed, 17 Sep 1975 21:32:10 GMT
+Access-Control-Allow-Origin: *
+Last-Modified: Wed, 21 Jan 2004 19:51:30 GMT
+Content-Type: image/gif
+Date: Wed, 19 Feb 2014 20:21:36 GMT
+Server: Golfe2
+Content-Length: 0
+Alternate-Protocol: 80:quic
+

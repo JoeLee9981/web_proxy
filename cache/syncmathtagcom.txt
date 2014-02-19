@@ -1,0 +1,13 @@
+HTTP/1.1 302 Found
+Date: Wed, 19 Feb 2014 20:24:40 GMT
+Content-Type: image/gif
+Content-Length: 0
+Connection: close
+Server: mt2/2.10.1.rc4+d8dd8bf CORE-1475 Jan 30 2014 15:20:06 pao-pixel-x6 pid 0x1efd 7933
+Cache-Control: no-cache
+P3P: CP="NOI DSP COR NID CURa ADMa DEVa PSAa PSDa OUR BUS COM INT OTC PUR STA"
+Set-Cookie: mt_mop=3:1392841480; domain=.mathtag.com; path=/; expires=Fri, 21-Mar-2014 20:24:40 GMT
+Location: http://image2.pubmatic.com/AdServer/Pug?vcode=bz0yJnR5cGU9MSZjb2RlPTM2MiZ0bD00MzIwMA==&piggybackCookie=uid:530512ac-737b-c684-f89b-a0a644aaf943&redir=http%3A%2F%2Fpixel.mathtag.com%2Fevent%2Fimg%3Fmm_bnc
+Set-Cookie: mt_misc=; domain=.mathtag.com; path=/; expires=Fri, 21-Mar-2014 20:24:40 GMT
+Expires: Wed, 19 Feb 2014 20:24:39 GMT
+

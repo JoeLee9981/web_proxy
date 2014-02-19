@@ -1,0 +1,8 @@
+HTTP/1.1 302 Moved Temporarily
+Server: Apache-Coyote/1.1
+RlogId: p4pphdlwc%3D9vjd7g65%60%28%3Ff34-1444bd29301-0xd2
+Location: http://srx.main.ebayrtm.com/clk?RtmClk&u=1H4sIAAAAAAAAACWLsQrDIBQAd8F%2FELpH39OkMeDikC1TCl0KQZsHldKmJBbJ3zfQ5Za7O11pFj1FAVaA7tB0RolhvAhUYDhbv%2B6R8%2BfWSVlKqSiGvbovL7nlZU20Sc7C4tTBNLuh934iH%2FbxL6c3Fc7i7KABq88tZ%2BmojK011I22qsbWgEE89vXpkLMfZe7k5owAAAA%3D&ch=3&g=4bc9a3701440a6a8d3a56f35ffe33bb2&aii=4953156390528414220&lid=1619378&m=421347&pi=2057337&g=4bc9a3701440a6a8d3a56f35ffe33bb2&cg=4bccb1041440a5f142f33da3feb1e121
+Content-Length: 0
+Date: Wed, 19 Feb 2014 20:24:54 GMT
+Connection: keep-alive
+

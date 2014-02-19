@@ -1,0 +1,18 @@
+HTTP/1.1 301 Moved Permanently
+Server: Apache-Coyote/1.1
+Set-Cookie: ds2=asotr/b7sHvzeLz19r^; Domain=.ebay.com; Path=/
+Set-Cookie: ebay=%5Ecv%3D15555%5Epsi%3DAzKUUAAE*%5Ejs%3D1%5Edv%3D5305119e%5Esbf%3D%23%5E; Domain=.ebay.com; Path=/
+Set-Cookie: dp1=bpbf/%2381004200000054e64528^tzo/1a453051fb8^abtc/053066328^u1p/QEBfX0BAX19AQA**54e64528^idm/1530549d8^bl/US56c778a8^; Domain=.ebay.com; Expires=Fri, 19-Feb-2016 20:18:48 GMT; Path=/
+Set-Cookie: ns1=BAQAAAURHcRm0AAaAANgATFTmRShjNzJ8NjAxXjEzOTI4NDExMjgyODNeXjFeM3wyfDY1fDV8NHw3XjFeMl40XjNeMTJeMTJeMl4xXjFeMF4xXjBeMV42NDQyNDU5MDc1HA6o808zpu+Sq0aRJNKxk25+XOc*;Domain=.ebay.com;Expires=Thu, 19-Feb-2015 20:18:48 GMT;Path=/; HttpOnly 
+Set-Cookie: cssg=4bc9a3701440a6a8d3a56f35ffe33bb2; Domain=.ebay.com; Path=/
+Set-Cookie: s=CgAD4ACBTBmMoNGJjOWEzNzAxNDQwYTZhOGQzYTU2ZjM1ZmZlMzNiYjIBSgAXUwZjKDUzMDUxMWE4LjAuMS43Ljk3LjYuMC4yAZv9ug**;Domain=.ebay.com;Path=/; HttpOnly 
+Set-Cookie: nonsession=CgAFMABdU5kUoNTMwNTExYTguMC4xLjYuOTYuMi4wLjIAygAgXGsTKDRiYzlhMzcwMTQ0MGE2YThkM2E1NmYzNWZmZTMzYmIyAMsAAVMFGLA1sxAeGw**; Domain=.ebay.com; Expires=Thu, 19-Feb-2015 20:18:48 GMT; Path=/
+Set-Cookie: lucky9=9122321; Domain=.ebay.com; Expires=Mon, 18-Feb-2019 20:18:48 GMT; Path=/
+Cache-Control: private
+Pragma: no-cache
+Location: http://www.ebay.com/chp/business-industrial
+RlogId: p4pmiw%60jtb9%3Fuk%601d71f%2B476%3F-1444bccf9a9
+Content-Length: 0
+Date: Wed, 19 Feb 2014 20:18:48 GMT
+Connection: Keep-Alive
+

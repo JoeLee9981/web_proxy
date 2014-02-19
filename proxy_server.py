@@ -33,7 +33,6 @@ class proxy_server(object):
         self.server = socket(AF_INET, SOCK_STREAM)
         #self.server.setblocking(0)
         self.server.settimeout(1)
-        self.cache = cache_manager()
         
     
     '''
@@ -42,6 +41,7 @@ class proxy_server(object):
     def start(self):
         #bind the socket
         print("Socket: ", self.server.fileno())
+        print(self.address, self.port)
         self.server.bind((self.address, self.port))
         print("Socket Bound: ", self.server.getsockname())
         #listen for incoming connections
@@ -68,23 +68,23 @@ class proxy_server(object):
                     self.enable_input(connectionSocket, message)
                     
                 else:
-                    try:
-                        #print("Getting input for socket: ", s.getpeername())
-                        if(self.in_queue[s].recv() == False):
-                            #no data received, close socket
-                            self.in_queue[s].done_receiving = True
-                            self.disable_input(s)
-                            #s.close()
-                        else:
-                            #data is received, add it for output
-                            self.enable_output(s, self.in_queue[s])
-                    
+                    #try:
+                    #print("Getting input for socket: ", s.getpeername())
+                    if(self.in_queue[s].recv() == False):
+                        #no data received, close socket
+                        self.in_queue[s].done_receiving = True
+                        self.disable_input(s)
+                        #s.close()
+                    else:
+                        #data is received, add it for output
+                        self.enable_output(s, self.in_queue[s])
+                    '''
                     except:
                         print("\nException encounterd on input, closing connection\n")
                         #send bad request and cleanup
                         s.send(b"400 Bad Request")
                         s.close()
-                        self.disable_input(s)
+                        self.disable_input(s) '''
                         
             #Handle output
             for s in outputready:
@@ -95,6 +95,7 @@ class proxy_server(object):
                     #try the send
                     if(not self.out_queue[s].send()):
                         #nothing left to send, remove from output
+                        self.out_queue[s].end_cache()
                         self.disable_input(self.out_queue[s].outgoing)
                         self.disable_output(self.out_queue[s].outgoing)
                         self.out_queue[s].outgoing.close()
@@ -102,36 +103,43 @@ class proxy_server(object):
                         self.disable_output(s)
                         s.close
                 else:
-                    try:
-                        #parse the data
-                        rqst, headers = self.out_queue[s].translate()
-                        send_data, host = self.get_command(rqst, headers)
-                        #data is ready to send to host, send and reappend to input
-                        if(host != ""):
-                            sock = socket(AF_INET, SOCK_STREAM)
+                    #try:
+                    #parse the data
+                    rqst, headers = self.out_queue[s].translate()
+                    send_data, host, file = self.get_command(rqst, headers)
+                    #data is ready to send to host, send and reappend to input
+                    if(host != ""):
+                        sock = socket(AF_INET, SOCK_STREAM)
+                        #check for cache
+                        cache = cache_manager(host + file)
+                        if(cache.try_open_file()):
                             sock.connect((host, 80))
                             sock.send(send_data.encode('utf-8'))
-                            #create a message and send to input to receive
-                            message = Message(sock, s)
-                            self.enable_input(sock, message)
                         else:
-                            s.send(send_data.encode('utf-8'))
-                            self.disable_input(self.out_queue[s].outgoing)
-                            self.disable_output(self.out_queue[s].outgoing)
-                            self.out_queue[s].outgoing.close()
-                            self.disable_input(s)
-                            self.disable_output(s)
-                            s.close
-                        #remove s from output
+                            sock.connect((host, 80))
+                            sock.send(send_data.encode('utf-8'))
+                        #create a message and send to input to receive
+                        message = Message(sock, s, cache)
+                        self.enable_input(sock, message)
+                    else:
+                        print("ERROR WITH HOST:", host, send_data)
+                        s.send(send_data.encode('utf-8'))
+                        self.disable_input(self.out_queue[s].outgoing)
+                        self.disable_output(self.out_queue[s].outgoing)
                         self.disable_input(s)
                         self.disable_output(s)
+                        s.close
+                    #remove s from output
+                    self.disable_input(s)
+                    self.disable_output(s)
+                    '''
                     except:
                         print("\nException encounterd on input, closing connection\n")
                         #send bad request and cleanup
                         s.send(b"400 Bad Request")
                         s.close()
                         self.disable_input(s)
-                        self.disable_output(s)
+                        self.disable_output(s)'''
                 #cleanup
     
     '''
@@ -188,12 +196,16 @@ class proxy_server(object):
         #check for a valid command
         if cmd.upper() == 'GET':
             #format data to be sent to server
-            send_data, host = self._format_send(rqst, headers)
-            return send_data, host
+            send_data, host, file = self._format_send(rqst, headers)
+            return send_data, host, file
+            #print()
+            #print("-----HOST:----- ", host)
+            #print(send_data, "\n-- Sent to server")
+            #open a new socket and send the data to host
         else:
             #invalid command, print error and return 501
-            print(cmd, "not recognized")
-            return "501 Not Implemented\r\n\r\n", ""
+            print("*** ERROR RQst:", rqst, "CMD:", cmd, "not recognized")
+            return "501 Not Implemented\r\n\r\n", "", ""
             
     '''
     takes the request and headers and formats them into
@@ -202,6 +214,7 @@ class proxy_server(object):
     def _format_send(self, rqst, headers):
         send_data = ""
         host = ""
+        file = ""
         #if there is more than one header
         if len(headers) > 0:
             #format and append the request
@@ -220,7 +233,7 @@ class proxy_server(object):
             send_data = "GET " + file + " HTTP/1.0\r\n"
             send_data += "Host: " + host + "\r\n"
             send_data += "Connection: close\r\n\r\n"
-        return send_data, host
+        return send_data, host, file
 
     '''
     checks the header and formats it for the multiline

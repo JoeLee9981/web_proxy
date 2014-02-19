@@ -1,0 +1,15 @@
+HTTP/1.1 200 OK
+Date: Wed, 19 Feb 2014 20:23:08 GMT
+Cache-Control: max-age=0, no-cache, no-store
+Pragma: no-cache
+Set-Cookie: di=1392841388.6MQ|1392841388.429|1392841388.S1Y|1392841388.MVA|1392841388.MV9|1392841388.ARA;Path=/;Domain=.addthis.com;Expires=Fri, 19-Feb-2016 20:23:08 GMT
+Set-Cookie: bt2=530512ac001C70002003y70001001E70002;Path=/;Domain=.addthis.com;Expires=Sun, 02-Nov-2014 20:23:08 GMT
+Set-Cookie: bt=1392841388|0000QB0100000QF0100000QM0100000GW0100000GB0100000GK0100000G70100000QC0100000GV0100000GU0100000GT0100000GS0100000GR0100000GQ0100000GM0100000GP0100000GN0100000GO0100000GG0100000QJ0100000QH0100000GF0100000GH0100000QI0100000FG0100000FE0100000FC0100000GA0100000QE0100000F80100000QD0100000FA010;Path=/;Domain=.addthis.com;Expires=Fri, 19-Feb-2016 20:23:08 GMT
+Set-Cookie: dt=X;Path=/;Domain=.addthis.com;Expires=Fri, 21-Mar-2014 20:23:08 GMT
+Expires: Thu, 01 Jan 1970 00:00:00 GMT
+P3P: policyref="/w3c/p3p.xml", CP="NON ADM OUR DEV IND COM STA"
+Content-Type: application/javascript;charset=ISO-8859-1
+Content-Length: 305
+Connection: close
+
+_ate.track.hsr({"segments":[],"urls":["http://ds.reson8.com/vendor.gif?v=CS&c=530512a9d1337ec1","http://ib.adnxs.com/getuid?http%3A%2F%2Fsu.addthis.com%2Fred%2Fusync%3Fpid%3D6%26puid%3D%24UID%26ssrc%3D1","http://addthis.mathtag.com/red/pixel?pid=11112"],"loc":"ODQxMDFOQVVTVVQyMjA4MDY4MTc3MDcxNjAwVg=="});

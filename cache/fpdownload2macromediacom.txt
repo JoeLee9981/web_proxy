@@ -1,0 +1,12 @@
+HTTP/1.0 200 OK
+Server: Apache
+Last-Modified: Mon, 03 Feb 2014 19:24:14 GMT
+ETag: "f9aa63-566-4f185780e7380"
+Accept-Ranges: bytes
+Content-Length: 1382
+Content-Type: text/xml
+Date: Wed, 19 Feb 2014 20:21:47 GMT
+Connection: close
+
+<XML><update version="12,0,0,44"><description>mshtml:<font face="sans-serif"><p><font color="#666666" style="{font-size: 18px}">An update to your Adobe Flash Player is available</font></p><font style="{font-size: 10px}"><p>This update includes improvements in usability, online security and stability, as well as new features which help content developers deliver rich and engaging experiences.</p><br />Did you know...<ul><li>The top 10 Facebook games use the Flash Player. To see more, visit: www.adobe.com/games.</li><li>Most of the top video sites on the web use Flash Player</li><li>Flash Player is installed on over 1.3 billion connected PCs</li></ul><br /></font></font></description></update><meta>message "This update includes improvements in usability, online security and stability, as well as new features which help content developers deliver rich and engaging experiences.<br /><br />Did you know...<br /><ul><li>The top 10 Facebook games use the Flash Player. To see more, visit: www.adobe.com/games.</li><li>Most of the top video sites on the web use Flash Player</li><li>Flash Player is installed on over 1.3 billion connected PCs
+</li></ul><br />Note: If you have selected to allow Adobe to install updates, this update will be installed on your system automatically within 30 days or you can choose to download it now.";size 740 350;autoUpdateMode 0;</meta></XML>

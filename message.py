@@ -8,7 +8,7 @@ Web Proxy Server
 
 from socket import *
 import sys
-from queue import Queue
+from Queue import Queue
 
 class Message(object):
     '''
@@ -20,12 +20,15 @@ class Message(object):
     '''
     MAX_BUFFER = 1024
     done_receiving = False
+    cache_mgr = None
+    cache_found = False
     
 
-    def __init__(self, incoming, outgoing):
-        self.incoming = incoming;
-        self.outgoing = outgoing;
-        self.message_queue = Queue();
+    def __init__(self, incoming, outgoing, cache=None):
+        self.incoming = incoming
+        self.outgoing = outgoing
+        self.message_queue = Queue()
+        self.cache_mgr = cache
         
         
     def send(self):
@@ -46,11 +49,20 @@ class Message(object):
         return True
     
     def recv(self):
+        data = b""
+        '''
+        if self.cache_found:
+            data = self.cache_mgr.read_cache().encode('utf-8')
+            print "From File:", data
+        else: '''
         try:
             data = self.incoming.recv(self.MAX_BUFFER)
+            if(self.cache_mgr != None):
+                self.cache_mgr.cache_data(data)
+                #print("Caching data", data)
         except:
             return False
-        #print("\t\tMessage: DataRecv:", len(data))
+            #print("\t\tMessage: DataRecv:", len(data))
         if len(data) == 0:
             return False
         else:
@@ -83,6 +95,18 @@ class Message(object):
         a = msg.split('\r\n')
         for x in a:
             print(x)
+            
+    def start_cache(self, filename):
+        try:
+            self.cache_found = self.cache_mgr.try_open_file()
+            print "FOUND:", self.cache_found
+        except:
+            print("Cache failed to init")
+
+    def end_cache(self):
+        if self.cache_mgr != None:
+            self.cache_mgr.close_file()
+            self.cache_mgr = None
             
     
         
