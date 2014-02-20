@@ -1,0 +1,7 @@
+HTTP/1.1 302 Moved Temporarily
+Server: nginx
+Date: Thu, 20 Feb 2014 03:39:42 GMT
+Content-Type: text/html
+Connection: close
+Location: http://image2.pubmatic.com/AdServer/Pug?vcode=bz0yJnR5cGU9MSZjb2RlPTI5NDMmdGw9NDMyMDA=&piggybackCookie=XU01v04-c22cdda9-d168-4e60-9b2d-85f8ae3a25e6
+

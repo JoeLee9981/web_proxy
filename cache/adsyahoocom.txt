@@ -1,0 +1,12 @@
+HTTP/1.0 302 Found
+Date: Thu, 20 Feb 2014 03:39:41 GMT
+P3P: policyref="http://p3p.yahoo.com/w3c/p3p.xml", CP="CAO DSP COR CUR ADM DEV TAI PSA PSD IVAi IVDi CONi TELo OTPi OUR DELi SAMi OTRi UNRi PUBi IND PHY ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE GOV"
+Set-Cookie: B=41ei76p9gau7t&b=3&s=1g; expires=Sun, 21-Feb-2016 03:39:41 GMT; path=/; domain=.yahoo.com
+Set-Cookie: RMBX=41ei76p9gau7t&b=3&s=1g&t=50; path=/; expires=Sat, 20-Feb-2016 03:39:41 GMT
+Location: http://m.xp1.ru4.com/cx?_o=197240&look=xid&xid=saliodEaT0v4jhtoA1qzmMqz
+Cache-Control: private
+Content-Length: 0
+Content-Type: text/plain; charset=utf-8
+Age: 0
+Server: YTS/1.20.13
+

@@ -55,14 +55,17 @@ class Message(object):
             data = self.cache_mgr.read_cache().encode('utf-8')
             print "From File:", data
         else: '''
-        try:
-            data = self.incoming.recv(self.MAX_BUFFER)
-            if(self.cache_mgr != None):
-                self.cache_mgr.cache_data(data)
-                #print("Caching data", data)
-        except:
-            return False
+        #try:
+        data = self.incoming.recv(self.MAX_BUFFER)
+        if(self.cache_mgr != None):
+            self.cache_mgr.cache_data(data)
+        #except:
+            #print("*** RECEIVE FAILED ***")
+            #return False
             #print("\t\tMessage: DataRecv:", len(data))
+        return self.queue_data(data)
+        
+    def queue_data(self, data):
         if len(data) == 0:
             return False
         else:
@@ -99,7 +102,7 @@ class Message(object):
     def start_cache(self, filename):
         try:
             self.cache_found = self.cache_mgr.try_open_file()
-            print "FOUND:", self.cache_found
+            #print "FOUND:", self.cache_found
         except:
             print("Cache failed to init")
 

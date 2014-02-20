@@ -23,6 +23,7 @@ class proxy_server(object):
     out_queue = {}
     #contains a message for receiving
     in_queue = {}
+    
     '''
     Constructor
     '''
@@ -48,6 +49,8 @@ class proxy_server(object):
         self.server.listen(100)
         self.input = [self.server]
         self.output = []
+        self.sockets_open = 0
+        self.sockets_closed = 0
         
         while 1:
             #print
@@ -60,9 +63,8 @@ class proxy_server(object):
                     #new connection from server was found
                     print('Handle server socket')
                     connectionSocket, addr = self.server.accept()
-                    #connectionSocket.setblocking(0)
-                    connectionSocket.settimeout(1)
                     print("Accepted connection from:", connectionSocket.getpeername())
+                    self.sockets_open += 1
                     #create the message queue
                     message = Message(connectionSocket, None)
                     self.enable_input(connectionSocket, message)
@@ -95,6 +97,7 @@ class proxy_server(object):
                     #try the send
                     if(not self.out_queue[s].send()):
                         #nothing left to send, remove from output
+                        print("*** Closing socket ***")
                         self.out_queue[s].end_cache()
                         self.disable_input(self.out_queue[s].outgoing)
                         self.disable_output(self.out_queue[s].outgoing)
@@ -102,6 +105,8 @@ class proxy_server(object):
                         self.disable_input(s)
                         self.disable_output(s)
                         s.close
+                        self.sockets_closed += 2
+                        print("--- Sockets opened", self.sockets_open, "Sockets closed:", self.sockets_closed)
                 else:
                     #try:
                     #parse the data
@@ -113,10 +118,14 @@ class proxy_server(object):
                         #check for cache
                         cache = cache_manager(host + file)
                         if(cache.try_open_file()):
+                            print("*** CONNECTING ****")
                             sock.connect((host, 80))
+                            self.sockets_open += 1
                             sock.send(send_data.encode('utf-8'))
                         else:
+                            print("*** CONNECTING ****")
                             sock.connect((host, 80))
+                            self.sockets_open += 1
                             sock.send(send_data.encode('utf-8'))
                         #create a message and send to input to receive
                         message = Message(sock, s, cache)
@@ -126,9 +135,14 @@ class proxy_server(object):
                         s.send(send_data.encode('utf-8'))
                         self.disable_input(self.out_queue[s].outgoing)
                         self.disable_output(self.out_queue[s].outgoing)
+                        if(self.out_queue[s].outgoing != None):
+                            self.out_queue[s].outgoing.close()
+                            self.sockets_closed += 1
                         self.disable_input(s)
                         self.disable_output(s)
                         s.close
+                        self.sockets_closed += 1
+                        print("--- Sockets opened", self.sockets_open, "Sockets closed:", self.sockets_closed)
                     #remove s from output
                     self.disable_input(s)
                     self.disable_output(s)

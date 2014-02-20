@@ -1,0 +1,7 @@
+HTTP/1.0 301 Moved Permanently
+content-length: 0
+date: Thu, 20 Feb 2014 03:39:41 UTC
+location: https://analytics.twitter.com/i/adsct?p_user_id=CK-00000005806190015&p_id=39232
+server: tfe
+set-cookie: guest_id=v1%3A139286758141144734; Domain=.twitter.com; Path=/; Expires=Sat, 20-Feb-2016 03:39:41 UTC
+

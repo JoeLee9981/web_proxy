@@ -36,9 +36,12 @@ class cache_manager(object):
             self.file = None
     
     def cache_data(self, data):
+        #data = data.decode("utf-16")
+        #content = unicode(q.data.strip(codecs.BOM_UTF8), 'utf-8')
         if self.file == None:
             raise Exception("Unable to cache, file not found")
         else:
+            #print(data)
             self.file.write(data)
             
     def read_cache(self):

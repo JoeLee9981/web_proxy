@@ -1,0 +1,12 @@
+HTTP/1.1 302 Found
+Expires: Thu, 20 Feb 2014 00:05:58 EST
+Set-Cookie: _tmid=6824568149767141361;Path=/;Domain=.tubemogul.com;Expires=Fri, 20-Feb-15 05:05:58 GMT
+Set-Cookie: _tmpi=MjAxNDAyMjA_MzpDQUVTRU9YNzBmLUtIVzZlQUwxdW9WS00wb2M6MzA;Path=/;Domain=.tubemogul.com;Expires=Fri, 20-Feb-15 05:05:58 GMT
+Pragma: no-cache
+Cache-Control: no-cache
+P3P: CP="NOI DSP COR LAW PSAo PSDo IVAo IVDo OUR BUS UNI DEM"
+Location: http://cm.g.doubleclick.net/pixel?google_nid=g8f47s39e399f3fe&google_push&google_sc&google_hm=NjgyNDU2ODE0OTc2NzE0MTM2MQ
+Content-Length: 0
+Server: Jetty(7.0.1.v20091125)
+Connection: close
+
