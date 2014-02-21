@@ -1,8 +1,0 @@
-HTTP/1.1 302 Moved Temporarily
-Server: nginx
-Date: Thu, 20 Feb 2014 03:39:38 GMT
-Content-Type: text/html
-Connection: close
-set-cookie: _zdeuuid=%7B%22zde_uuid%22%3A%22XU01v04-c22cdda9-d168-4e60-9b2d-85f8ae3a25e6%22%2C%22zdxidn%22%3A1413%7D; path=/; expires=Sat, 20 Feb 2016 03:39:38 GMT; domain=.zenoviaexchange.com; httponly
-Location: http://sync.mathtag.com/sync/img?mt_exid=28&redir=http%3A%2F%2Fsync2.dist.us-east.zenoviaexchange.com%2Fusersync3%2Fmediamath%2F1413%2F%5BMM_UUID%5D%3Fzderedir%3D%26zcc%3D1
-

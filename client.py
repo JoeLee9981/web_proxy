@@ -25,13 +25,16 @@ class client(object):
         #print('Bound to:', self.clientSocket.getsockname())
         self.clientSocket.connect((self.address, self.port))
         sentence = input('Input lowercase sentence:')
-        self.clientSocket.send(sentence.encode('utf_8'))
+        sentence += "\r\n"
+        sentence = sentence.encode('utf_8')
+        self.clientSocket.send(sentence)
         print("FROM SERVER: ")
         while 1:
             data = self.clientSocket.recv(1024)
             if len(data) == 0:
                 break
             print(data)
+        print("Close socket")
         self.clientSocket.close()
         
         

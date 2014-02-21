@@ -58,7 +58,20 @@ class test_proxy(object):
                     self.input.append(connectionSocket)
                 else:
                     enc_data = s.recv(1024)
-                    print("RECEIVED:", enc_data)
+                    if len(enc_data) == 0:
+                        s.close()
+                        self.input.remove(s)
+                        print("CLOSED")
+                    else:
+                        print("Received:", enc_data)
+                        for i in range(100):
+                            s.send(str(i) + ": Message\r\n     and stuff")
+                            s.send(" is fun")
+                            s.send(" to do\r\n")
+                        s.send(b"SUCCESS\r\n\r\n")
+                        #s.close()
+                        #self.input.remove(s)
+                    '''
                     if(len(enc_data) == 0):
                         #no data received, close socket
                         self.input.remove(s)
@@ -71,7 +84,7 @@ class test_proxy(object):
                             print("SENT:", i, self.get_message())
                         s.send( b" SUCCESS\r\n\r\n")
                         self.input.remove(s)
-                        s.close()
+                        s.close() '''
 
     '''
     closes the server

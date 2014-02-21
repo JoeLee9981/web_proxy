@@ -10,51 +10,66 @@ import string
 
 class cache_manager(object):
     '''
-    classdocs
+    controls the file manage for caching
     '''
-    file = None
-
-    def __init__(self, filename):
-        self.filepath = "cache/" + self._strip(filename) + '.txt'
-        '''
-        Constructor
-        '''
     
+    #the file object
+    file = None
+    
+    '''
+    Constructor
+    @param filename: the filename to open
+    '''
+    def __init__(self, filename):
+        #set the filepath
+        self.filepath = "cache/" + self._strip(filename) + '.txt'
+
+    #opens the file if exists or creates
     def try_open_file(self):
         if self.file == None:
             try:
+                #file exists, open and return true
                 self.file = open(self.filepath, 'r+')
                 return 1
             except:
+                #file doesn't exist, open and return false
                 self.file = open(self.filepath, 'w+')
                 return 0
-                
+    
+    '''
+    Close the file
+    '''            
     def close_file(self):
         if self.file != None:
-            print("close file.")
             self.file.close()
             self.file = None
     
+    '''
+    Write the cache data to the file
+    '''
     def cache_data(self, data):
-        #data = data.decode("utf-16")
-        #content = unicode(q.data.strip(codecs.BOM_UTF8), 'utf-8')
         if self.file == None:
             raise Exception("Unable to cache, file not found")
         else:
-            #print(data)
             self.file.write(data)
-            
+    
+    '''
+    Read the data from the cache
+    '''
     def read_cache(self):
         if self.file == None:
             raise Exception("Unable to read cache, file not found")
         else:
-            return self.file.readline()
+            return self.file.readlines()
     
+    '''
+    Strips all invalid characters from the filename
+    '''
     def _strip(self, s):
-        #re.sub(r'[\W_]+', '', s)
         s = ''.join(e for e in s if e.isalnum())
-        #print("S:", s)
         return s
+    
+    
     '''
     def try_get_file(self, filename):
         read_data = ""

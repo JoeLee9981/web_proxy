@@ -1,8 +1,0 @@
-HTTP/1.1 302 Moved Temporarily
-Date: Thu,  20 Feb 2014 03:39:42 GMT
-Connection: close
-Server: AAWebServer
-P3P: policyref="http://www.adadvisor.net/w3c/p3p.xml",CP="NOI NID"
-Content-Length: 0
-Location: http://www.adadvisor.net/spacer.gif
-

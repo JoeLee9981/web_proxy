@@ -11,28 +11,28 @@ import sys
 import select
 from cache_manager import *
 from message import Message
-#import queue
+
 
 
 class proxy_server(object):
     '''
-    classdocs
+    proxy_server encapsulates the sockets used for server management of an HTTP Proxy
     '''
     
-    #contains a message for sending
+    #a set used to get the message for outgoing
     out_queue = {}
-    #contains a message for receiving
+    #a set used to get the message for incoming
     in_queue = {}
     
     '''
     Constructor
+    @param adddr: is the ip address
+    @param port: the port number
     '''
     def __init__(self, addr, port):
         self.port = port
         self.address = addr
-        #create the socket
         self.server = socket(AF_INET, SOCK_STREAM)
-        #self.server.setblocking(0)
         self.server.settimeout(1)
         
     
@@ -49,13 +49,14 @@ class proxy_server(object):
         self.server.listen(100)
         self.input = [self.server]
         self.output = []
+        '''
+        Counters (REMOVE)
+        '''
         self.sockets_open = 0
         self.sockets_closed = 0
         
         while 1:
-            #print
-            #print("-----------------------------------------------------")
-            #check for ready values
+            #select sockets for input or output
             inputready,outputready,exceptready = select.select(self.input, self.output, [])
             
             for s in inputready:
@@ -67,19 +68,22 @@ class proxy_server(object):
                     self.sockets_open += 1
                     #create the message queue
                     message = Message(connectionSocket, None)
+                    #add to input queue and input set
                     self.enable_input(connectionSocket, message)
                     
                 else:
                     #try:
-                    #print("Getting input for socket: ", s.getpeername())
+                    #socket has been closed from other end
                     if(self.in_queue[s].recv() == False):
-                        #no data received, close socket
+                        #flag done and disable input
                         self.in_queue[s].done_receiving = True
                         self.disable_input(s)
-                        #s.close()
                     else:
-                        #data is received, add it for output
-                        self.enable_output(s, self.in_queue[s])
+                        print("HOW OFTEN DO WE HIT HERE")
+                        #data is received, and ready, add it for output
+                        if(self.in_queue[s].out_ready):
+                            self.enable_output(s, self.in_queue[s])
+                            self.in_queue[s].done_receiving = True
                     '''
                     except:
                         print("\nException encounterd on input, closing connection\n")
@@ -90,11 +94,9 @@ class proxy_server(object):
                         
             #Handle output
             for s in outputready:
-                #print("Getting output for socket: ", s.getpeername())
                 #try:
-                #output is ready, issue send to message queue
-                if(self.out_queue[s].outgoing != None):                    
-                    #try the send
+                if(self.out_queue[s].outgoing != None):  
+                    #ready to respond back to initiating socket 
                     if(not self.out_queue[s].send()):
                         #nothing left to send, remove from output
                         print("*** Closing socket ***")
@@ -104,33 +106,53 @@ class proxy_server(object):
                         self.out_queue[s].outgoing.close()
                         self.disable_input(s)
                         self.disable_output(s)
-                        s.close
+                        self.close_sock(s)
+                        '''
+                        Counter only REMOVE
+                        '''
                         self.sockets_closed += 2
                         print("--- Sockets opened", self.sockets_open, "Sockets closed:", self.sockets_closed)
                 else:
                     #try:
-                    #parse the data
+                    #parse the data from the queue
                     rqst, headers = self.out_queue[s].translate()
                     send_data, host, file = self.get_command(rqst, headers)
-                    #data is ready to send to host, send and reappend to input
                     if(host != ""):
+                        #host is valid, create the socket
                         sock = socket(AF_INET, SOCK_STREAM)
                         #check for cache
                         cache = cache_manager(host + file)
                         if(cache.try_open_file()):
-                            print("*** CONNECTING ****")
-                            sock.connect((host, 80))
-                            self.sockets_open += 1
-                            sock.send(send_data.encode('utf-8'))
+                            #cache file found
+                            '''
+                            TODO UPDATE CACHING
+                            '''
+                            print("*** CACHING ****")
+                            #sock.connect((host, 80))
+                            #sock.connect(("localhost", 1433))
+                            #self.sockets_open += 1
+                            #sock.send(send_data)
+                            message = Message(None, s, cache)
+                            message.send_from_cache()
+                            self.disable_input(s)
+                            self.disable_output(s)
+                            self.close_sock(s)
                         else:
+                            #no cache was found, connect to socket
                             print("*** CONNECTING ****")
-                            sock.connect((host, 80))
+                            #sock.connect((host, 80))
+                            sock.connect(("localhost", 1433))
+                            '''
+                            REMOVE THIS
+                            '''
                             self.sockets_open += 1
-                            sock.send(send_data.encode('utf-8'))
-                        #create a message and send to input to receive
-                        message = Message(sock, s, cache)
-                        self.enable_input(sock, message)
+                            #send the data
+                            sock.send(send_data)
+                            #create message and append new socket as input
+                            message = Message(sock, s, cache)
+                            self.enable_input(sock, message)
                     else:
+                        #error from server, disable all
                         print("ERROR WITH HOST:", host, send_data)
                         s.send(send_data.encode('utf-8'))
                         self.disable_input(self.out_queue[s].outgoing)
@@ -140,10 +162,10 @@ class proxy_server(object):
                             self.sockets_closed += 1
                         self.disable_input(s)
                         self.disable_output(s)
-                        s.close
+                        self.close_sock(s)
                         self.sockets_closed += 1
                         print("--- Sockets opened", self.sockets_open, "Sockets closed:", self.sockets_closed)
-                    #remove s from output
+                    #We are done receiving from initial socket
                     self.disable_input(s)
                     self.disable_output(s)
                     '''
@@ -154,7 +176,6 @@ class proxy_server(object):
                         s.close()
                         self.disable_input(s)
                         self.disable_output(s)'''
-                #cleanup
     
     '''
     closes the server
@@ -195,10 +216,13 @@ class proxy_server(object):
             self.output.remove(s)
             self.out_queue.pop(s)
             #self.close_sock(s)
-            
+    
+    '''
+    closes a socket
+    '''
     def close_sock(self, s):
-        print("Closing socket")
         if not s in self.input and not s in self.output:
+            print("Closing socket")
             s.close()
     
     '''
@@ -206,19 +230,16 @@ class proxy_server(object):
     returns the data or 501 if not valid
     '''
     def get_command(self, rqst, headers):
+        headers = self._clear_empty(headers)
         cmd = rqst.split(' ')[0]
         #check for a valid command
         if cmd.upper() == 'GET':
             #format data to be sent to server
             send_data, host, file = self._format_send(rqst, headers)
             return send_data, host, file
-            #print()
-            #print("-----HOST:----- ", host)
-            #print(send_data, "\n-- Sent to server")
-            #open a new socket and send the data to host
         else:
             #invalid command, print error and return 501
-            print("*** ERROR RQst:", rqst, "CMD:", cmd, "not recognized")
+            print("*** ERROR Rqst:", rqst, "CMD:", cmd, "not recognized")
             return "501 Not Implemented\r\n\r\n", "", ""
             
     '''
