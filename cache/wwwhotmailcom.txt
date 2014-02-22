@@ -1,0 +1,26 @@
+HTTP/1.1 302 Found
+Cache-Control: no-cache, no-store, must-revalidate, no-transform
+Pragma: no-cache
+Expires: -1
+Location: https://login.live.com/login.srf?wa=wsignin1.0&rpsnv=12&ct=1393058768&rver=6.4.6456.0&wp=MBI&wreply=http:%2F%2Fmail.live.com%2Fdefault.aspx&lc=1033&id=64855&mkt=en-us&cbcxt=mai&snsc=1
+Server: Microsoft-IIS/7.5
+X-Wlp-StartTime: 2/22/2014 8:46:08 AM
+xxn: 60
+P3P: CP="BUS CUR CONo FIN IVDo ONL OUR PHY SAMo TELo"
+Set-Cookie: KSC=; domain=.mail.live.com; expires=Thu, 01-Jan-1970 12:00:01 GMT; path=/
+Set-Cookie: kr=; domain=.mail.live.com; expires=Thu, 01-Jan-1970 12:00:01 GMT; path=/
+Set-Cookie: bsc=; domain=.mail.live.com; expires=Thu, 01-Jan-1970 12:00:01 GMT; path=/
+Set-Cookie: rru=; domain=.mail.live.com; expires=Thu, 01-Jan-1970 12:00:01 GMT; path=/
+Set-Cookie: prc=; domain=.mail.live.com; expires=Thu, 01-Jan-1970 12:00:01 GMT; path=/
+Set-Cookie: mt=; domain=.mail.live.com; expires=Thu, 01-Jan-1970 12:00:01 GMT; path=/
+Set-Cookie: DWN=; domain=.mail.live.com; expires=Thu, 01-Jan-1970 12:00:01 GMT; path=/
+MSNSERVER: H: BAY171-W60 V: 17.1.7419.6000 D: 2014-02-19T12:25:57
+X-Powered-By: ASP.NET
+Date: Sat, 22 Feb 2014 08:46:08 GMT
+Content-Type: text/html;charset=utf-8
+Content-Length: 340
+Connection: close
+
+<html><head><title>Object moved</title></head><body>
+<h2>Object moved to <a href="https://login.live.com/login.srf?wa=wsignin1.0&amp;rpsnv=12&amp;ct=1393058768&amp;rver=6.4.6456.0&amp;wp=MBI&amp;wreply=http:%2F%2Fmail.live.com%2Fdefault.aspx&amp;lc=1033&amp;id=64855&amp;mkt=en-us&amp;cbcxt=mai&amp;snsc=1">here</a>.</h2>
+</body></html>

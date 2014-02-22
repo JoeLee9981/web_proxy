@@ -23,6 +23,8 @@ class proxy_server(object):
     out_queue = {}
     #a set used to get the message for incoming
     in_queue = {}
+    #list of websites cached
+    cached_files = []
     
     '''
     Constructor
@@ -113,19 +115,23 @@ class proxy_server(object):
                     #parse the data from the queue
                     rqst, headers = self.out_queue[s].translate()
                     send_data, host, file = self.get_command(rqst, headers)
+                    port = self._get_port(host)
+                    host = self._get_host(host)
+                    '''print("**** CONNECTING ****")
+                    print("    Host:", host)
+                    print("    Port:", port)
+                    print("    File:", file)
+                    print(send_data)
+                    print("**** END ****")'''
                     if(host != ""):
                         #host is valid, create the socket
                         
                         #check for cache
                         cache = cache_manager(host + file)
                         try:
-                            if(cache.try_open_file()):
-                                #cache file found
+                            if(cache.try_open_file() and (host + file) in self.cached_files):
+                                #cache file found and is flagged in cached_files
                                 print("*** CACHING ****", host + file)
-                                #sock.connect((host, 80))
-                                #sock.connect(("localhost", 1433))
-                                #self.sockets_open += 1
-                                #sock.send(send_data)
                                 try:
                                     message = Message(None, s, cache)
                                     message.send_from_cache()
@@ -133,9 +139,12 @@ class proxy_server(object):
                                     self.disable_output(s)
                                     self.close_sock(s)
                                 except:
+                                    #error occurs reading from file, get file from host
                                     self._get_web_url(s, host, send_data, cache) 
                             else:
+                                #no cache, get from host and add to cached_files
                                 self._get_web_url(s, host, send_data, cache)
+                                self.cached_files.append(host + file)
                         except:
                             self._get_web_url(s, host, send_data, None)
                     else:
@@ -245,7 +254,7 @@ class proxy_server(object):
             #invalid command, print error and return 501
             print("*** ERROR Rqst:", rqst, "CMD:", cmd, "not recognized")
             return "501 Not Implemented\r\n\r\n", "", ""
-            
+                     
     '''
     takes the request and headers and formats them into
     a string to send to the server
@@ -254,26 +263,27 @@ class proxy_server(object):
         send_data = ""
         host = ""
         file = ""
+        line = rqst.split(' ')
+        host, file = self._parse_url(line[1])
+        print("****", host)
         #if there is more than one header
         if len(headers) > 0:
             #format and append the request
-            send_data += "GET " + rqst.split(' ')[1] + " HTTP/1.0\r\n"
+            send_data += "GET " + file + " HTTP/1.0\r\n"
             #format and append all headers
             for h in headers:
                 #when the host is found save it
-                if h.split(' ')[0].upper() == 'HOST:':
-                    host = h.split(' ')[1]
+                #if h.split(' ')[0].upper() == 'HOST:':
+                    #host = h.split(' ')[1]
                 send_data += self._parse_header(h)
         #one line get request
         else:
             #split and format into multiline response for server
             send_data = "GET " + file + " HTTP/1.0\r\n"
-            send_data += "Host: " + host + "\r\n"
+            send_data += "Host: " + host.split(":")[0] + "\r\n"
             send_data += "Connection: close\r\n"
         #append closing \r\n
         send_data += "\r\n"
-        line = rqst.split(' ')
-        host, file = self._parse_url(line[1])
         return send_data, host, file
 
     '''
@@ -302,12 +312,27 @@ class proxy_server(object):
     used for single line GET requests
     '''
     def _parse_url(self, line):
+        line = line.replace('http://', '', 1)
         split_line = self._clear_empty(line.split('/'))
-        host = split_line[1]
+        host = split_line[0]
         file = "/"
-        for i in range(2, len(split_line)):
+        
+        for i in range(1, len(split_line)):
             file += split_line[i]
+            if(i != len(split_line) - 1):
+                file += "/"
         return host, file
+    
+    def _get_port(self, host):
+        port = 80
+        if ':' in host:
+            port = host.split(':')[1]
+        return int(port)
+    
+    def _get_host(self, host):
+        if ':' in host:
+            return host.split(':')[0]
+        return host
             
         
         

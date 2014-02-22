@@ -1,0 +1,455 @@
+HTTP/1.1 200 OK
+Date: Sat, 22 Feb 2014 08:45:38 GMT
+Server: Microsoft-IIS/6.0
+X-Powered-By: ASP.NET
+X-AspNet-Version: 2.0.50727
+Set-Cookie: ASP.NET_SessionId=m4za4njwanz3wx55ov4shaff; path=/; HttpOnly
+Cache-Control: private
+Content-Type: text/html;charset=utf-8
+Content-Length: 73786
+Connection: close
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<!--  -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=7" />
+    <title>Practical UML: A Hands-On Introduction for Developers</title>
+	
+	<meta name="description" content="This tutorial provides a quick introduction to the Unified Modeling Language" />
+	
+	<!--
+	<link href="/styles/pe_menu.css" type="text/css" rel="stylesheet" />
+	<link href="/styles/pe_events.css" rel="stylesheet" type="text/css" />
+	<link href="/styles/main.css" rel="stylesheet" type="text/css" />
+	<link href="/styles/jquery-ui.css" type="text/css" rel="stylesheet" />
+	<link href="/styles/tags.css" rel="stylesheet" type="text/css" />
+	<link href="/styles/products.css" rel="stylesheet" type="text/css" />
+	<link href="/styles/article.css" rel="stylesheet" type="text/css" />
+	<link href="/styles/yapp.css" rel="stylesheet" type="text/css" />
+	<link href="/styles/pe_dlstyles.css" rel="stylesheet" type="text/css" />
+	<link href="/styles/pe_forms.css" rel="stylesheet" type="text/css" />
+	<link href="/styles/buttons.css" rel="stylesheet" type="text/css" />
+	<link href="/styles/codecentral.css" rel="stylesheet" type="text/css" />
+	-->
+	<link href="http://static.embarcadero.com/styles/jquery-ui.css" rel="stylesheet" type="text/css" />
+  <link href="http://static.embarcadero.com/styles/edn_nojqui.css" rel="stylesheet" type="text/css" />
+	
+  <link media="print" href="http://static.embarcadero.com/styles/print.css" rel="stylesheet" />
+	<script language="JavaScript" type="text/javascript">
+    var ednSSL = false;
+  </script>
+	  
+  <!--
+	<script src="/javascript/jquery.js" type="text/javascript"></script>
+	<script src="/javascript/jquery-ui.js" type="text/javascript"></script>
+  <script language="JavaScript" src="/javascript/planetembt_nav_jq.js" type="text/javascript"></script>
+  <script language="JavaScript" src="/javascript/library.js" type="text/javascript"></script>
+  <script language="JavaScript" src="/javascript/hide_show.js" type="text/javascript"></script>
+  <script language="JavaScript" src="/javascript/chatroominfo.js" type="text/javascript"></script>
+  <script language="JavaScript" src="/javascript/services.js" type="text/javascript"></script>
+  <script language="JavaScript" src="/javascript/searchhint.js" type="text/javascript"></script>
+  <script language="JavaScript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js" type="text/javascript"></script>
+  <script language="JavaScript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.20/jquery-ui.js" type="text/javascript"></script>
+  -->
+      
+  <script language="JavaScript" src="http://static.embarcadero.com/javascript/jq.js" type="text/javascript"></script>
+  
+  <script language="JavaScript" src="http://static.embarcadero.com/javascript/edn_nojq.js" type="text/javascript"></script>
+  <script language="JavaScript" src="http://static.embarcadero.com/javascript/embtnewtrackc.js" type="text/javascript"></script>
+    
+  <script language="javascript" type="text/javascript">
+function onload_function(){
+	initNav();
+}
+jQuery(window).load(onload_function);
+
+function onresize_function(){
+	reposNav();
+}
+window.onresize = onresize_function;   
+    </script>
+	<script type="text/javascript">
+searchServiceURL = "http://edn.embarcadero.com/SearchHintsJS.aspx";
+approxHitsText = "Approx hits";
+
+
+	</script>
+
+	<link rel="shortcut icon" href="http://static.embarcadero.com/ednfavicon.ico" type="image/x-icon" />
+
+	<link title="Embarcadero Search" rel="search" type="application/opensearchdescription+xml" href="http://static.embarcadero.com/javascript/search.xml" />
+	
+	
+	<link rel="alternate" type="application/atom+xml" href="http://edn.embarcadero.com/article/31863/atom">
+<link rel="alternate" type="application/rss+xml" href="http://edn.embarcadero.com/article/31863/rss">
+
+	
+	<style type="text/css">
+/*#left-col div, #right-col div { width: 42px; }*/
+#center-col { width: 100%; }
+#center-col #logo-area { width: 100%; }
+#CopyrightSection { padding: 15px 42px 0; }
+#CopyrightSection div { width: auto; }
+</style>
+</head>
+
+<body id="body">
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<div class="main_wrapper">
+  <div class="main_wrapper_inner_left">
+    <div class="main_wrapper2">
+      <div class="main_wrapper2_inner_right">
+	    <div class="shadow_bg_wrapper">
+		
+        <div class="header_wrapper"  id="header_wrapper">        	
+			<div id="mininav_bar" class="mininav_wrapper">
+			<div style="float: right; height: 18px; line-height: 18px;">
+                <form class="search" name="search" method="get" action="http://edn.embarcadero.com/search">
+                    <input id="searchbox-q" type="text" name="q" class="s" size="18" maxlength="255" value="" autocomplete="off" />
+					<script language="JavaScript" type="text/javascript">
+					    registerSearchBox("searchbox-q");
+					</script>
+                    <input name="" type="image" src="http://static.embarcadero.com/images/edn/search_btn.gif" align="absmiddle" />
+                    <input type="hidden" name="allsites" value="y" />
+		            <input type="hidden" name="allwords" value="y" />
+                </form>                
+            </div>
+            
+		    <div style="float: right; height: 18px; line-height: 18px;">
+		        
+		        
+		        <a class="login" href="https://members.embarcadero.com/login.aspx?returnurl=http://edn.embarcadero.com/article/31863">
+			        Log On
+			    </a>		        
+            </div>
+            
+            
+            
+            <div style="float: right; height: 18px; line-height: 18px;">&nbsp;|&nbsp;</div>
+            <div class="langselect" style="float: right;">
+                <div class="primary-menu" style="background: none; padding: 0;">
+                    <ul id="langlist" class="langbg">
+		                <li id="langselected"><a id="langselecteda" href="#">English</a>
+		                    <ul><li><a href="http://edn.embarcadero.com/language?clear=yes&returnurl=http%3a%2f%2fedn.embarcadero.com%2farticle%2f31863">My default language</a></li>
+<li><a href="http://edn.embarcadero.com/language?code=ar&returnurl=http%3a%2f%2fedn.embarcadero.com%2farticle%2f31863">Arabic</a></li>
+<li><a href="http://edn.embarcadero.com/language?code=br&returnurl=http%3a%2f%2fedn.embarcadero.com%2farticle%2f31863">Brazilian Portuguese</a></li>
+<li><a href="http://edn.embarcadero.com/language?code=bg&returnurl=http%3a%2f%2fedn.embarcadero.com%2farticle%2f31863">Bulgarian</a></li>
+<li><a href="http://edn.embarcadero.com/language?code=hr&returnurl=http%3a%2f%2fedn.embarcadero.com%2farticle%2f31863">Croatian</a></li>
+<li><a href="http://edn.embarcadero.com/language?code=cs&returnurl=http%3a%2f%2fedn.embarcadero.com%2farticle%2f31863">Czech</a></li>
+<li class="selected"><a href="http://edn.embarcadero.com/language?code=en&returnurl=http%3a%2f%2fedn.embarcadero.com%2farticle%2f31863">English</a></li>
+<li><a href="http://edn.embarcadero.com/language?code=fi&returnurl=http%3a%2f%2fedn.embarcadero.com%2farticle%2f31863">Finnish</a></li>
+<li><a href="http://edn.embarcadero.com/language?code=fr&returnurl=http%3a%2f%2fedn.embarcadero.com%2farticle%2f31863">French</a></li>
+<li><a href="http://edn.embarcadero.com/language?code=de&returnurl=http%3a%2f%2fedn.embarcadero.com%2farticle%2f31863">German</a></li>
+<li><a href="http://edn.embarcadero.com/language?code=he&returnurl=http%3a%2f%2fedn.embarcadero.com%2farticle%2f31863">Hebrew</a></li>
+<li><a href="http://edn.embarcadero.com/language?code=el&returnurl=http%3a%2f%2fedn.embarcadero.com%2farticle%2f31863">Hellenic (Greek)</a></li>
+<li><a href="http://edn.embarcadero.com/language?code=hu&returnurl=http%3a%2f%2fedn.embarcadero.com%2farticle%2f31863">Hungarian</a></li>
+<li><a href="http://edn.embarcadero.com/language?code=it&returnurl=http%3a%2f%2fedn.embarcadero.com%2farticle%2f31863">Italian</a></li>
+<li><a href="http://edn.embarcadero.com/language?code=jp&returnurl=http%3a%2f%2fedn.embarcadero.com%2farticle%2f31863">Japanese</a></li>
+<li><a href="http://edn.embarcadero.com/language?code=kr&returnurl=http%3a%2f%2fedn.embarcadero.com%2farticle%2f31863">Korean</a></li>
+<li><a href="http://edn.embarcadero.com/language?code=no&returnurl=http%3a%2f%2fedn.embarcadero.com%2farticle%2f31863">Norwegian</a></li>
+<li><a href="http://edn.embarcadero.com/language?code=pl&returnurl=http%3a%2f%2fedn.embarcadero.com%2farticle%2f31863">Polish</a></li>
+<li><a href="http://edn.embarcadero.com/language?code=pt&returnurl=http%3a%2f%2fedn.embarcadero.com%2farticle%2f31863">Portuguese</a></li>
+<li><a href="http://edn.embarcadero.com/language?code=ru&returnurl=http%3a%2f%2fedn.embarcadero.com%2farticle%2f31863">Russian</a></li>
+<li><a href="http://edn.embarcadero.com/language?code=cn&returnurl=http%3a%2f%2fedn.embarcadero.com%2farticle%2f31863">Simplified Chinese</a></li>
+<li><a href="http://edn.embarcadero.com/language?code=es&returnurl=http%3a%2f%2fedn.embarcadero.com%2farticle%2f31863">Spanish</a></li>
+<li><a href="http://edn.embarcadero.com/language?code=sv&returnurl=http%3a%2f%2fedn.embarcadero.com%2farticle%2f31863">Swedish</a></li>
+<li><a href="http://edn.embarcadero.com/language?code=tw&returnurl=http%3a%2f%2fedn.embarcadero.com%2farticle%2f31863">Traditional Chinese</a></li>
+<li><a href="http://edn.embarcadero.com/language?code=tr&returnurl=http%3a%2f%2fedn.embarcadero.com%2farticle%2f31863">Turkish</a></li>
+</ul>
+		                </li>
+		            </ul>
+		        </div>
+		    </div>
+		    
+            
+            
+            <div style="float: right; height: 18px; line-height: 18px;">|</div>
+			<div style="float: right;">
+                <div class="primary-menu" style="background: none; padding: 0;">
+                    <ul class="langbg countrylist">
+		                <li class="countryselected">
+		                    <!-- <img src="http://static.embarcadero.com://static.embarcadero.com/images/w3/icons-globe.gif" width="22" height="21" alt="" /> --><a class="countryselecteda" href="#">Location</a>
+                            <ul>
+		                    <li><a href="http://edn.embarcadero.com/country?clear=yes&returnurl=http%3a%2f%2fedn.embarcadero.com%2farticle%2f31863">All Other</a></li>
+<li class="section">Regions</li><li><a href="http://edn.embarcadero.com/country?code=ASEAN&returnurl=http%3a%2f%2fedn.embarcadero.com%2farticle%2f31863" title="Brunei Darussalam, Cambodia, Indonesia, Laos, Malaysia, Philippines, Singapore, Thailand, Viet Nam">ASEAN</a></li><li><a href="http://edn.embarcadero.com/country?code=ANZ&returnurl=http%3a%2f%2fedn.embarcadero.com%2farticle%2f31863" title="Australia, New Zealand">Australia/New Zealand</a></li><li><a href="http://edn.embarcadero.com/country?code=BENELUX&returnurl=http%3a%2f%2fedn.embarcadero.com%2farticle%2f31863" title="Belgium, Luxembourg, Netherlands">Benelux</a></li><li><a href="http://edn.embarcadero.com/country?code=DACH&returnurl=http%3a%2f%2fedn.embarcadero.com%2farticle%2f31863" title="Austria, Germany, Switzerland">D-A-CH</a></li><li><a href="http://edn.embarcadero.com/country?code=CHINAHK&returnurl=http%3a%2f%2fedn.embarcadero.com%2farticle%2f31863" title="China, Hong Kong">Greater China</a></li><li><a href="http://edn.embarcadero.com/country?code=LATAM&returnurl=http%3a%2f%2fedn.embarcadero.com%2farticle%2f31863" title="Argentina, Bolivia, Chile, Colombia, Costa Rica, Dominican Republic, Ecuador, El Salvador, Guatemala, Honduras, Mexico, Nicaragua, Panama, Paraguay, Peru, Uruguay, Venezuela">Latin America</a></li><li><a href="http://edn.embarcadero.com/country?code=NORDIC&returnurl=http%3a%2f%2fedn.embarcadero.com%2farticle%2f31863" title="Denmark, Finland, Iceland, Norway, Sweden">Nordic</a></li><li><a href="http://edn.embarcadero.com/country?code=TW&returnurl=http%3a%2f%2fedn.embarcadero.com%2farticle%2f31863" title="">Taiwan</a></li><li><a href="http://edn.embarcadero.com/country?code=UKIR&returnurl=http%3a%2f%2fedn.embarcadero.com%2farticle%2f31863" title="Ireland, United Kingdom">UK and Ireland</a></li><li><a href="http://edn.embarcadero.com/country?code=USCARIB&returnurl=http%3a%2f%2fedn.embarcadero.com%2farticle%2f31863" title="Anguilla, Antigua and Barbuda, Aruba, Bahamas, Barbados, Belize, Bermuda, Cayman Islands, Dominica, Falkland Islands (Malvinas), Grenada, Guadeloupe, Guyana, Haiti, Jamaica, Martinique, Montserrat, Netherlands Antilles, Puerto Rico, Saint Kitts and Nevis, Saint Lucia, Saint Vincent and the Grenadines, St. Barthelemy, Suriname, Trinidad and Tobago, Turks and Caicos Islands, United States, Virgin Islands (British), Virgin Islands (U.S.)">US and Caribbean</a></li><li class="section">Countries</li><li><a href="http://edn.embarcadero.com/country?code=BR&returnurl=http%3a%2f%2fedn.embarcadero.com%2farticle%2f31863" title="">Brazil</a></li><li><a href="http://edn.embarcadero.com/country?code=CA&returnurl=http%3a%2f%2fedn.embarcadero.com%2farticle%2f31863" title="">Canada</a></li><li><a href="http://edn.embarcadero.com/country?code=FR&returnurl=http%3a%2f%2fedn.embarcadero.com%2farticle%2f31863" title="">France</a></li><li><a href="http://edn.embarcadero.com/country?code=IN&returnurl=http%3a%2f%2fedn.embarcadero.com%2farticle%2f31863" title="">India</a></li><li><a href="http://edn.embarcadero.com/country?code=IT&returnurl=http%3a%2f%2fedn.embarcadero.com%2farticle%2f31863" title="">Italy</a></li><li><a href="http://edn.embarcadero.com/country?code=JP&returnurl=http%3a%2f%2fedn.embarcadero.com%2farticle%2f31863" title="">Japan</a></li><li><a href="http://edn.embarcadero.com/country?code=KR&returnurl=http%3a%2f%2fedn.embarcadero.com%2farticle%2f31863" title="">Korea (South)</a></li><li><a href="http://edn.embarcadero.com/country?code=RU&returnurl=http%3a%2f%2fedn.embarcadero.com%2farticle%2f31863" title="">Russian Federation</a></li><li><a href="http://edn.embarcadero.com/country?code=ES&returnurl=http%3a%2f%2fedn.embarcadero.com%2farticle%2f31863" title="">Spain</a></li>
+                            </ul>
+		                </li>
+		            </ul>
+		        </div>
+		    </div>
+		    
+		    
+		    <div style="float: left; height: 18px; line-height: 18px;">
+		        <a href="http://www.embarcadero.com" class="site-home">Embarcadero Home</a>
+		    </div>
+		    &nbsp;
+		  </div>
+        <div id="social" style="position:relative; clear:right; float:right; top:10px; width:180px;">
+        <div id="sociallinks" style="position:absolute; float:right; top:0px; right:15px; z-index:100;">
+        <a href="http://www.youtube.com/user/EmbarcaderoTechNet" title="Embarcadero on YouTube">
+          <img src="http://static.embarcadero.com/images/w3/Youtube_32x32.png" alt="YouTube" width="32" height="32" border="0" />
+        </a>
+        <a href="http://twitter.com/EmbarcaderoTech" title="Embarcadero on Twitter">
+          <img src="http://static.embarcadero.com/images/w3/Twitter_32x32.png" alt="Twitter" width="32" height="32" border="0" />
+        </a>
+        <a href="http://www.facebook.com/#/pages/Embarcadero-Technologies-Database-Application-Software-Tools/34960937498" title="Embarcadero on Facebook">
+          <img src="http://static.embarcadero.com/images/w3/FaceBook_32x32.png" alt="Facebook" width="32" height="32" border="0" />
+        </a>
+        <a href="http://www.linkedin.com/e/vgh/2551723/" title="Embarcadero on Linked In">
+          <img src="http://static.embarcadero.com/images/w3/Linked-In-icon-32.png" alt="Linked In" width="32" height="32" border="0" />
+        </a>
+        </div>
+        <div id="socialtext" style="color:white; position:absolute; float:right; top:30px; z-index:100; right:15px; text-align:right;">Watch, Follow, &amp; <br />Connect with Us</div>
+
+        <div id="addthis" class="addthis_toolbox addthis_default_style" style="position:absolute; float:right; top:60px; right:16px;  text-align:right;">
+        <a href="http://www.addthis.com/bookmark.php?v=250&amp;pub=embarcadero" class="addthis_button_compact" style="color:White;" title="Share this Embarcadero web page">Share This</a>
+        </div>
+        <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pub=embarcadero"></script>
+
+<!--
+        <div id="sharethis" style="position:absolute; color:white; float:right; top:60px; right:16px; z-index:100; text-align:right;">
+        <script type="text/javascript" src="http://w.sharethis.com/button/sharethis.js#publisher=8cc86461-c593-40bd-a158-87c043ff9862&amp;type=website&amp;buttonText=Share This&amp;embeds=true&amp;post_services=email%2Cfacebook%2Ctwitter%2Clinkedin%2Cdigg%2Ctechnorati%2Cdelicious%2Cwindows_live%2Cstumbleupon%2Cyahoo_bmarks%2Cblogger%2Csms%2Cmyspace%2Creddit%2Cgoogle_bmarks%2Cbebo%2Cybuzz%2Cmixx%2Cfriendfeed%2Cpropeller%2Cwordpress%2Cnewsvine%2Cxanga&amp;headerTitle=Share this Embarcadero web page"></script>
+        </div>
+-->
+        </div>
+		    
+		    <a href="http://edn.embarcadero.com" class="ednlogo"><img src="http://static.embarcadero.com/images/edn/edn.jpg" alt="Embarcadero Developer Network" /></a>
+        	<a href="http://edn.embarcadero.com" class="mainlogo"><img src="http://static.embarcadero.com/images/edn/header_logo.gif" alt="Embarcadero Developer Network" /></a>
+        </div>
+        	
+ 
+		<div class="main_nav_wrapper" id="main_nav">
+			<a href="#" id="Communities">Communities</a>
+			<a href="#" id="Articles">Articles</a>
+            <a href="http://blogs.embarcadero.com" id="Blogs">Blogs</a>
+            <a href="#" id="Resources">Resources</a>
+            <a href="#" id="Downloads">Downloads</a>
+            <a href="http://edn.embarcadero.com/help" id="Help">Help</a>
+		</div>
+
+		<div class="content_wrapper_inside">
+		  <form name="ctl30" method="post" action="/article/31863" id="ctl30">
+<div>
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMTg0MDYyNTE1MA9kFgICnwEPZBYEAi4PDxYCHgdWaXNpYmxlaGRkAjgPZBYGZg9kFgJmDw8WAh8AaGRkAgcPZBYCZg8WAh4EVGV4dAWaATxkaXYgY2xhc3M9ImJ1dHRvbiBidXR0b24taW1hZ2UgYnV0dG9uLWRsIj48YSBocmVmPSJodHRwOi8vd3d3LmVtYmFyY2FkZXJvLmNvbS9kb3dubG9hZHMiIHRpdGxlPSJEb3dubG9hZCBhIGZyZWUgdHJpYWwiPkRvd25sb2FkIFRyaWFsPC9hPjwvZGl2Pg0KICANCg0KDQpkAgwPZBYCZg9kFgJmD2QWAmYPZBYCZg9kFgQCAQ8PFgIfAQXOAzxkaXYgY2xhc3M9InRhZ2Nsb3VkIj4NCjxzcGFuIGNsYXNzPSJ0YWciPjxhIGhyZWY9Imh0dHA6Ly9lZG4uZW1iYXJjYWRlcm8uY29tL3RhZy9lbixQcmFjdGljYWwlMjBVTUwiIGNsYXNzPSJ0YWctc21hbGwiIHRpdGxlPSJUYWdnZWQgYnkgMiB1c2VycyI+UHJhY3RpY2FsJm5ic3A7VU1MPC9hPjwvc3Bhbj4gPHNwYW4gY2xhc3M9InRhZyI+PGEgaHJlZj0iaHR0cDovL2Vkbi5lbWJhcmNhZGVyby5jb20vdGFnL2VuLFJhbmR5JTIwTWlsbGVyIiBjbGFzcz0idGFnLXNtYWxsIiB0aXRsZT0iVGFnZ2VkIGJ5IDIgdXNlcnMiPlJhbmR5Jm5ic3A7TWlsbGVyPC9hPjwvc3Bhbj4gPHNwYW4gY2xhc3M9InRhZyI+PGEgaHJlZj0iaHR0cDovL2Vkbi5lbWJhcmNhZGVyby5jb20vdGFnL2VuLFVNTCIgY2xhc3M9InRhZy14LWxhcmdlIiB0aXRsZT0iVGFnZ2VkIGJ5IDkgdXNlcnMiPlVNTDwvYT48L3NwYW4+DQo8L2Rpdj4NCmRkAgMPDxYCHwBoZBYKAgEPDxYCHwEFDVRhZyBMYW5ndWFnZTpkZAIDDxAPFgYeDURhdGFUZXh0RmllbGQFBE5hbWUeDkRhdGFWYWx1ZUZpZWxkBQxUZW1wbGF0ZUNvZGUeC18hRGF0YUJvdW5kZ2QQFRgGQXJhYmljFEJyYXppbGlhbiBQb3J0dWd1ZXNlCUJ1bGdhcmlhbghDcm9hdGlhbgVDemVjaAdFbmdsaXNoB0Zpbm5pc2gGRnJlbmNoBkdlcm1hbgZIZWJyZXcQSGVsbGVuaWMgKEdyZWVrKQlIdW5nYXJpYW4HSXRhbGlhbghKYXBhbmVzZQZLb3JlYW4JTm9yd2VnaWFuBlBvbGlzaApQb3J0dWd1ZXNlB1J1c3NpYW4SU2ltcGxpZmllZCBDaGluZXNlB1NwYW5pc2gHU3dlZGlzaBNUcmFkaXRpb25hbCBDaGluZXNlB1R1cmtpc2gVGAJhcgJicgJiZwJocgJjcwJlbgJmaQJmcgJkZQJoZQJlbAJodQJpdAJqcAJrcgJubwJwbAJwdAJydQJjbgJlcwJzdgJ0dwJ0chQrAxhnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2cWAQIFZAIFDw8WAh8BBQRUYWc6ZGQCCQ8WBB4NVXNlQ29udGV4dEtleWceCkNvbnRleHRLZXkFAmVuZAILDw8WAh8BBQdBZGQgVGFnZGRkTc3vBxI+PBW1iKpRg+DEbHSMWl8=" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['ctl30'];
+if (!theForm) {
+    theForm = document.ctl30;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/WebResource.axd?d=Qz9pFl4o1y1XzQHaEPTpwCcohYVeijQ78MiOMYAnbLUSYaRLvhbURJ_1Obb-HoTUj05hIpV2JhtjXJlN8ZtYwmLHjBA1&amp;t=635176080062404607" type="text/javascript"></script>
+
+
+<script src="/ScriptResource.axd?d=7Qcu8zaS7kidysYmeueIj8vQHiva5Jz8FXdMkahu9LqSpaniRbhv3h-O1aYGLCHwT7V6zYot0LIG76h-WyvURaTh8PhMgx63wi9BS5X3CMYrzA5EcdYPxND0njJXVzMZ_fDblA2&amp;t=633049125920000000" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=x_c5__Xh_ammnydESjxhfdqkan9p9SX68WQD5wrtPtyvWZmQHg7OBRKNrETX_oZPHZNEKyXv_hVgk8cYmmlH-EMCRiqMB3dg1ZBDE9EOFTRaqxf7W_di3MZIT3hXAfbA5dSrkg2&amp;t=633049125920000000" type="text/javascript"></script>
+		    
+        	<div class="top">    
+        	            
+            	<div class="print_btn">
+            	    <ul>
+  <li class="submit-translation"><a onmouseover="window.status='Submit a translation for this article';return true;" onmouseout="window.status='';return true;" href="http://gp.embarcadero.com/articles/translate/31863.aspx"><span>Submit Translation</span></a></li>
+  <li class="print"><a href="http://edn.embarcadero.com/print/31863"><span>Printer-friendly</span></a></li>
+</ul>
+                </div>
+                
+                
+                
+                <div class="breadcrumb">
+                    <ul>
+  <li><a href="http://edn.embarcadero.com"><span>EDN</span></a></li>
+  <li><span>&#187;</span></li>
+  <li><a href="http://edn.embarcadero.com/together"><span>Together</span></a></li>
+  <li><span>&#187;</span></li>
+  <li><a href="http://edn.embarcadero.com/together/modeling"><span>Modeling</span></a></li>
+  <li><span>&#187;</span></li>
+  <li><a href="http://edn.embarcadero.com/together/modeling/uml"><span>UML</span></a></li>
+</ul>
+                </div>
+                
+            </div>
+            
+            
+            
+        
+			
+			
+        	<div class="content_wrapper_top">
+        	    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+        	        <tr>
+			    
+                          
+                        <td valign="top" width="99%">      
+                <div id="article-div" class="article article-with-rightcol" style="overflow: hidden;">
+				    				    
+				    
+				    <div style="float: left;">
+                      <div id="langfilter" style="display: none;" width="1" nowrap="nowrap">
+                        <table id="langfiltertable" nowrap="nowrap" width="24px" style="display: none; white-space: nowrap;">
+                            <tr>
+                                <td><a href="javascript:showLanguage('', 'All');">Show All</a></td>
+                            </tr>
+                        </table>
+                        <img src="http://static.embarcadero.com/images/primary-channel/langfilter.gif" alt="" onClick="showLangFilter();" />&nbsp;<span id="langfiltername">[All]</span>
+                        
+                      </div>
+                    </div>
+                    <div id="article-inner-div">
+                    <h1 class="title3">
+                        <span id="expand-collapse-all">
+                            <span id="expand-all"><a href="javascript:expandAll();" title="Expand all article sections"></a></span>
+                            <span id="collapse-all"><a href="javascript:collapseAll();" title="Collapse all article sections"></a></span>
+                        </span>
+                        Practical UML: A Hands-On Introduction for Developers
+                    </h1>
+                    
+                    
+                    <p class="author">By: <a href="http://gp.embarcadero.com/authors/edit/661.aspx">Randy Miller</a></p>
+                    
+                    
+                    <p class="abstract">Abstract: This tutorial provides a quick introduction to the Unified Modeling Language</p>
+                    
+                    
+                    
+                    
+                    
+				    <div class="article-content">
+				    
+				    <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ctl31', document.getElementById('ctl30'));
+Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tctl41$ctl00$TagsPanel'], [], [], 90);
+//]]>
+</script>
+
+<span id="ArticleLabel"><p>The heart of object-oriented problem solving is the construction of a model. The model abstracts the essential details of the underlying problem from its usually complicated real world. Several modeling tools are wrapped under the heading of the <font color="#990000"><b>UML</b></font>&trade;, which stands for Unified Modeling Language&trade;. The purpose of this course is to present important highlights of the UML.</p>
+<p>At the center of the UML are its nine kinds of modeling diagrams, which we describe here.</p>
+<ul>
+  <li><a href="#use-case-diagram">Use case diagrams</a></li>
+  <li><a href="#classdiagrams">Class diagrams</a></li>
+  <li><a href="#object-diagrams">Object diagrams</a></li>
+  <li><a href="#sequence-diagrams">Sequence diagrams</a></li>
+  <li><a href="#collaboration-diagrams">Collaboration diagrams</a></li>
+  <li><a href="#statechart-diagrams">Statechart diagrams</a></li>
+  <li><a href="#activity-diagrams">Activity diagrams</a></li>
+  <li><a href="#component-and-deployment-diagrans">Component diagrams</a></li>
+  <li><a href="#component-and-deployment-diagrans">Deployment diagrams</a></li>
+
+</ul>
+<p>Some of the sections of this course contain links to pages with more detailed information. And every section has short questions. Use them to test your understanding of the section topic.</p>
+<p><img height="2" width="1000" src="images/31863/blue_line.gif" alt="Divider line" /></p>
+<p>Why is UML important?</p>
+<p>Let's look at this question from the point of view of the construction trade. Architects design buildings. Builders use the designs to create buildings. The more complicated the building, the more critical the communication between architect and builder. Blueprints are the standard graphical language that both architects and builders must learn as part of their trade.</p>
+<p>Writing software is not unlike constructing a building. The more complicated the underlying system, the more critical the communication among everyone involved in creating and deploying the software. In the past decade, the UML has emerged as the software blueprint language for analysts, designers, and programmers alike. It is now part of the software trade. The UML gives everyone from business analyst to designer to programmer a common vocabulary to talk about software design.</p>
+<p>The UML is applicable to object-oriented problem solving. Anyone interested in learning UML must be familiar with the underlying tenet of object-oriented problem solving -- it all begins with the construction of a model. A <font color="#990000"><b>model</b></font> is an abstraction of the underlying problem. The <font color="#990000"><b>domain</b></font> is the actual world from which the problem comes.</p>
+<p>Models consist of <font color="#990000"><b>objects</b></font> that interact by sending each other <font color="#990000"><b>messages</b></font>. Think of an object as &quot;alive.&quot; Objects have things they know (<font color="#990000"><b>attributes</b></font>) and things they can do (<font color="#990000"><b>behaviors</b></font> or <font color="#990000"><b>operations</b></font>). The values of an object's attributes determine its <font color="#990000"><b>state</b></font>.</p>
+<p><font color="#990000"><b>Classes</b></font> are the &quot;blueprints&quot; for objects. A class wraps attributes (data) and behaviors (methods or functions) into a single distinct entity. Objects are <font color="#990000"><b>instances</b></font> of classes.</p>
+<p><img height="2" width="1000" src="images/31863/blue_line.gif" alt="Divider line" /></p>
+<p><a name="use-case-diagram"></a><font size="5">Use case diagrams</font></p>
+<p><font color="#990000"><b><a name="usecasediagrams"></a>Use case diagrams</b></font> describe what a system does from the standpoint of an external observer. The emphasis is on <i>what</i> a system does rather than <i>how.</i></p>
+<p>Use case diagrams are closely connected to scenarios. A <a name="scenario"></a><font color="#990000"><b>scenario</b></font> is an example of what happens when someone interacts with the system. Here is a scenario for a medical clinic.</p>
+<div align="left">
+  <ul>
+    <p>&quot;A patient calls the clinic to make an appointment for a yearly checkup. The receptionist finds the nearest empty time slot in the appointment book and schedules the appointment for that time slot. &quot;</p>
+
+  </ul>
+
+</div>
+<p>A <a name="usecase"></a><font color="#990000"><b>use case</b></font> is a summary of scenarios for a single task or goal. An <a name="actor"></a><font color="#990000"><b>actor</b></font> is who or what initiates the events involved in that task. Actors are simply roles that people or objects play. The picture below is a <b>Make Appointment</b> use case for the medical clinic. The actor is a <b>Patient</b>. The connection between actor and use case is a <font color="#990000"><b>communication association</b></font> (or <font color="#990000"><b>communication</b></font> for short).</p>
+<p><a href="javascript:hideShowImage('docimageheader1', 'docimage1')"><span class="imagehide" id="docimageheader1">Hide image</span><br /></a><img vspace="15" height="76" width="370" src="images/31863/usecaseactorno3.gif" hspace="10" alt="Use case" id="docimage1" /></p>
+<p>Actors are stick figures. Use cases are ovals. Communications are lines that link actors to use cases.</p>
+<p>A use case diagram is a collection of actors, use cases, and their communications. We've put <b>Make Appointment</b> as part of a diagram with four actors and four use cases. Notice that a single use case can have multiple actors.</p>
+<p><a href="javascript:hideShowImage('docimageheader2', 'docimage2')"><span class="imagehide" id="docimageheader2">Hide image</span><br /></a><img vspace="15" height="234" width="460" src="images/31863/actorsmultipleno3d.gif" hspace="10" alt="Use case diagram" id="docimage2" /></p>
+<p>Use case diagrams are helpful in three areas.</p>
+<ul>
+  <li><b>determining features (requirements)</b>. New use cases often generate new requirements as the system is analyzed and the design takes shape.</li>
+  <li><b>communicating with clients</b>. Their notational simplicity makes use case diagrams a good way for developers to communicate with clients.</li>
+  <li><b>generating test cases</b>. The collection of scenarios for a use case may suggest a suite of test cases for those scenarios.</li>
+
+</ul>
+<p><a target="_blank" href="usecase.html"><img height="20" width="91" border="0" src="images/31863/more.gif" alt="More details" /></a></p>
+<p><a target="_blank" href="q1frame.html"><img height="20" width="64" border="0" src="images/31863/test.gif" alt="Self test" /><br />
+</a></p>
+<p><img height="2" width="1000" src="images/31863/blue_line.gif" alt="Divider line" /></p>
+<p><a name="classdiagrams"></a>Class diagrams</p>
+<p><font color="#990000"><b><a name="classdiagram"></a>A Class diagram</b></font> gives an overview of a system by showing its classes and the relationships among them. Class diagrams are static -- they display what interacts but not what happens when they do interact.</p>
+<p>The class diagram below models a customer order from a retail catalog. The central class is the <b>Order</b>. Associated with it are the <b>Customer</b> making the purchase and the <b>Payment</b>. A <b>Payment</b> is one of three kinds: <b>Cash</b>, <b>Check</b>, or <b>Credit</b>. The order contains <b>OrderDetails</b> (line items), each with its associated <b>Item</b>.</p>
+<p><a href="javascript:hideShowImage('docimageheader3', 'docimage3')"><span class="imagehide" id="docimageheader3">Hide image</span><br /></a><a href="images/31863/classdiagramno3d.gif"><img vspace="15" height="383" width="773" src="images/31863/thumbclassdiagramno3d.gif" hspace="5" alt="Click to see full-sized image" id="docimage3" title="Click to see full-sized image" /></a></p>
+<p>UML class notation is a rectangle divided into three parts: class name, attributes, and operations. Names of abstract classes, such as <i><b>Payment</b>,</i> are in italics. Relationships between classes are the connecting links.</p>
+<p>Our class diagram has three kinds of relationships.</p>
+<ul>
+  <li><font color="#990000"><b><a name="association"></a>association</b></font> -- a relationship between instances of the two classes. There is an association between two classes if an instance of one class must know about the other in order to perform its work. In a diagram, an association is a link connecting two classes.</li>
+  <li><font color="#990000"><b><a name="aggregation"></a>aggregation</b></font> -- an association in which one class belongs to a collection. An aggregation has a diamond end pointing to the part containing the whole. In our diagram, <b>Order</b> has a collection of <b>OrderDetails</b>.</li>
+  <li><font color="#990000"><b><a name="generalization"></a>generalization</b></font> -- an inheritance link indicating one class is a superclass of the other. A generalization has a triangle pointing to the superclass. <i><b>Payment</b></i> is a superclass of <b>Cash</b>, <b>Check</b>, and <b>Credit</b>.</li>
+
+</ul>
+<p>An association has two ends. An end may have a <a name="rolename"></a><font color="#990000"><b>role name</b></font> to clarify the nature of the association. For example, an <b>OrderDetail</b> is a line item of each <b>Order</b>.</p>
+<p>A <a name="navigable"></a><font color="#990000"><b>navigability</b></font> arrow on an association shows which direction the association can be traversed or queried. An <b>OrderDetail</b> can be queried about its <b>Item</b>, but not the other way around. The arrow also lets you know who &quot;owns&quot; the association's implementation; in this case, <b>OrderDetail</b> has an <b>Item</b>. Associations with no navigability arrows are bi-directional.</p>
+<p>The <a name="multiplicity"></a><font color="#990000"><b>multiplicity</b></font> of an association end is the number of possible instances of the class associated with a single instance of the other end. Multiplicities are single numbers or ranges of numbers. In our example, there can be only one <b>Customer</b> for each <b>Order</b>, but a <b>Customer</b> can have any number of <b>Orders</b>.</p>
+<p>This table gives the most common multiplicities.</p>
+<ul>
+  <p>
+    <table cellspacing="2" border="1" cellpadding="0">
+        <tbody>
+            <tr>
+                <th bgcolor="#ffffcc">Multiplicities</th>
+                <th bgcolor="#ffffcc">Meaning</th>
+            </tr>
+            <tr>
+                <td><b>0..1</b></td>
+                <td>zero or one instance. The notation <i><b>n . . m</b></i> indicates <i><b>n</b></i> to<i> <b>m</b></i> instances.</td>
+            </tr>
+            <tr>
+                <td><b>0..*</b><i> &nbsp;or&nbsp; </i><b>*</b></td>
+                <td>no limit on the number of instances (including none).</td>
+            </tr>
+            <tr>
+                <td><b>1</b></td>
+                <td>exactly one instance</td>
+            </tr>
+            <tr>
+                <td><b>1..*</b></td>
+                <td>at least one instance</td>
+            </tr>
+        </tbody>
+    </table>
+    </p>
+
+</ul>
+<p>Every class diagram has classes, associations, and multiplicities. Navigability and roles are optional items placed in a diagram to provide clarity.</p>
+<p><a target="_blank" href="classdiagram.html"><img height="20" width="91" border="0" src="images/31863/more.gif" alt="More details" /></a></p>
+<p><a target="_blank" href="q2frame.html"><img height="20" width="64" border="0" src="images/31863/test.gif" alt="Self test" /><br />
+</a></p>
+<p><img height="2" width="1000" src="images/31863/blue_line.gif" alt="Divider line" /></p>
+<p><a name="object-diagrams"></a>Packages and object diagrams</p>
+<p>To simplify complex class diagrams, you can group classes into <a name="packages"></a><font color="#990000"><b>packages</b></font>. A package is a collection of logically related UML elements. The diagram below is a business model in which the classes are grouped into packages.</p>
+<p><a href="javascript:hideShowImage('docimageheader4', 'docimage4')"><span class="imagehide" id="docimageheader4">Hide image</span><br /></a><img vspace="15" height="266" width="402" src="images/31863/packageno3d.gif" hspace="10" alt="Package diagram" id="docimage4" /></p>
+<p>Packages appear as rectangles with small tabs at the top. The package name is on the tab or inside the rectangle. The dotted arrows are <a name="dependency"></a><font color="#990000"><b>dependencies</b></font>. One package depends on another if changes in the other could possibly force changes in the first.</p>
+<p><font color="#990000"><b><a name="Objectdiagrams"></a>Object diagrams</b></font> show instances instead of classes. They are useful for explaining small pieces with complicated relationships, especially recursive relationships.</p>
+<p>This small class diagram shows that a university <b>Department</b> can contain lots of other <b>Departments</b>.</p>
+<p><a href="javascript:hideShowImage('docimageheader5', 'docimage5')"><span class="imagehide" id="docimageheader5">Hide image</span><br /></a><img vspace="15" height="116" width="410" src="images/31863/departmentno3d.gif" hspace="10" alt="Recursive class diagram" id="docimage5" /></p>
+<p>The object diagram below instantiates the class diagram, replacing it by a concrete example.</p>
+<p><a href="javascript:hideShowImage('docimageheader6', 'docimage6')"><span class="imagehide" id="docimageheader6">Hide image</span><br /></a><img vspace="15" height="263" width="458" src="images/31863/objdiagno3d.gif" hspace="10" alt="Object diagram" id="docimage6" /></p>
+<p>Each rectangle in the object diagram corresponds to a single instance. Instance names are underlined in UML diagrams. Class or instance names may be omitted from object diagrams as long as the diagram meaning is still clear.</p>
+<p><a target="_blank" href="q3frame.html"><img height="20" width="64" border="0" src="images/31863/test.gif" alt="Self test" /><br />
+</a></p>
+<p><img height="2" width="1000" src="images/31863/blue_line.gif" alt="Divider line" /></p>
+<p><a name="sequence-diagrams"></a>Sequence diagrams</p>
+<p>Class and object diagrams are static model views. <font color="#990000"><b><a name="Interactiondiagrams"></a>Interaction diagrams</b></font> are dynamic. They describe how objects collaborate.</p>
+<p>A <a name="sequence"></a><font color="#990000"><b>sequence diagram</b></font> is an interaction diagram that details how operations are carried out -- what messages are sent and when. Sequence diagrams are organized acco

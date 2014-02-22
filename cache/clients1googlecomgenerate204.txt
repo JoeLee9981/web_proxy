@@ -1,6 +1,0 @@
-HTTP/1.0 204 No Content
-Content-Length: 0
-Content-Type: text/html; charset=UTF-8
-Date: Sat, 22 Feb 2014 03:26:24 GMT
-Server: GFE/2.0
-
