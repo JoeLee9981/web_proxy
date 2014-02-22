@@ -1,0 +1,12 @@
+HTTP/1.0 204 No Content
+Date: Sat, 22 Feb 2014 03:26:26 GMT
+Expires: Fri, 01 Jan 1990 00:00:00 GMT
+Cache-Control: no-cache, must-revalidate
+Pragma: no-cache
+Content-Type: image/gif
+X-Content-Type-Options: nosniff
+Server: HTTP server (unknown)
+Content-Length: 0
+X-XSS-Protection: 1; mode=block
+Alternate-Protocol: 80:quic
+

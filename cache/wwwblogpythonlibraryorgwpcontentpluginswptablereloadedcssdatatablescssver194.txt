@@ -1,0 +1,17 @@
+HTTP/1.1 304 Not Modified
+Last-Modified: Tue, 29 Jan 2013 15:09:31 GMT
+ETag: "22c1ae-919-4d46ec7d5a0c0-gzip"
+Vary: Accept-Encoding,User-Agent
+Content-Encoding: gzip
+Content-Type: text/css
+Server:  - Web acceleration by http://www.unixy.net/varnish 
+X-Cacheable: YES
+Accept-Ranges: bytes
+Date: Sat, 22 Feb 2014 03:26:26 GMT
+X-Varnish: 1051103976 1051098370
+Via: 1.1 varnish
+Connection: close
+age: 0
+X-Cache: HIT
+X-Cache-Hits: 3
+

@@ -23,7 +23,7 @@ class Message(object):
     cache_found = False
     
     #stores an incomplete message
-    incomplete_message = ""
+    incomplete_message = b""
     #set to true when output is ready
     out_ready = False
     
@@ -46,14 +46,15 @@ class Message(object):
     def send(self):
         if(self.outgoing != None):
             if(not self.message_queue.empty()):
-                try:
+                #try:
                     #attempt to send the next message in the queue
-                    msg = self.message_queue.get_nowait()
+                msg = self.message_queue.get_nowait()
+                try:
                     self.outgoing.send(msg)
-                    self.Failed_Send = 0
                 except:
-                    #send failed problem with socket return false
                     return False
+                    #send failed problem with socket return false
+                    #return False
             else:
                 #if done receiving and queue is empty, we are done
                 if self.done_receiving:
@@ -66,14 +67,11 @@ class Message(object):
     '''
     def recv(self):
         data = b""
-        '''
-        if self.cache_found:
-            data = self.cache_mgr.read_cache().encode('utf-8')
-            print "From File:", data
-        else: '''
         #try:
         #receive data up to 1024
         data = self.incoming.recv(self.MAX_BUFFER)
+        if len(data) == 0:
+            return False
         #if cache manager is found store to cache
         if(self.cache_mgr != None):
             self.cache_mgr.cache_data(data)
@@ -82,35 +80,23 @@ class Message(object):
             #return False
             #print("\t\tMessage: DataRecv:", len(data))
         #return true or false if data was queued
-        return self.queue_data(data)
+        self.queue_data(data)
+        return True
     
     '''
     Checks for newline characters and adds datat to queue
     '''    
     def queue_data(self, data):
-        #no data is received return false for fail
-        if len(data) == 0:
-            return False
-        #check for newline characters in received data
+        self.message_queue.put_nowait(data)
         if '\r\n' in data:
-            #append message and add to queue
-            message = self.incomplete_message + data
-            self.message_queue.put_nowait(message)
-            self.incomplete_message = ""
-            #We are now able to parse and add to output
             self.out_ready = True
-        else:
-            #no newline character, append to incomplete message
-            self.incomplete_message += data
-        #queue successful return true
-        return True
         
         
     '''
     translates received data and returns it into the request and headers
     '''
     def translate(self):
-        message = ""
+        message = b""
         while(not self.message_queue.empty()):
             #construct the message
             message += self.message_queue.get_nowait()
@@ -145,6 +131,10 @@ class Message(object):
         else:
             content = self.cache_mgr.read_cache()
             for line in content:
-                self.outgoing.send(line.encode("utf-8"))
+                try:
+                    self.outgoing.send(line)
+                except:
+                    raise Exception("Unable to load cache")
+            self.cache_mgr.close_file()
     
         

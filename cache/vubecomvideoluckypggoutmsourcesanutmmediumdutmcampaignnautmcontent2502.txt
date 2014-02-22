@@ -1,0 +1,15 @@
+HTTP/1.1 301 Moved Permanently
+Server: nginx/1.2.1
+Date: Sat, 22 Feb 2014 03:28:01 GMT
+Content-Type: text/html
+Content-Length: 184
+Location: http://vube.com/video/lucky/?p=ggo&utm_source=san&utm_medium=d&utm_campaign=na&utm_content=2502
+Connection: close
+
+<html>
+<head><title>301 Moved Permanently</title></head>
+<body bgcolor="white">
+<center><h1>301 Moved Permanently</h1></center>
+<hr><center>nginx/1.2.1</center>
+</body>
+</html>

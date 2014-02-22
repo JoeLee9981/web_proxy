@@ -1,0 +1,13 @@
+HTTP/1.0 204 No Content
+P3P: policyref="http://www.googleadservices.com/pagead/p3p.xml", CP="NOI DEV PSA PSD IVA IVD OTP OUR OTR IND OTC"
+Date: Sat, 22 Feb 2014 03:27:43 GMT
+Pragma: no-cache
+Expires: Fri, 01 Jan 1990 00:00:00 GMT
+Cache-Control: no-cache, must-revalidate
+Content-Type: text/html; charset=UTF-8
+X-Content-Type-Options: nosniff
+Server: cafe
+Content-Length: 0
+X-XSS-Protection: 1; mode=block
+Alternate-Protocol: 80:quic
+
