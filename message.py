@@ -27,6 +27,12 @@ class Message(object):
     #set to true when output is ready
     out_ready = False
     
+    
+    #DEBUG FLAGS - NOTE CHANGE THESE IN proxy_server.py NOT HERE
+    show_output = False
+    show_input = False
+    show_file_debug = False
+    
     '''
     Message controls the sending and receiving of a message
     @param incoming: is the addr to receive from
@@ -46,11 +52,13 @@ class Message(object):
     def send(self):
         if(self.outgoing != None):
             if(not self.message_queue.empty()):
-                #try:
-                    #attempt to send the next message in the queue
+                #attempt to send the next message in the queue
                 msg = self.message_queue.get_nowait()
                 try:
                     self.outgoing.send(msg)
+                    if(self.show_output):
+                        print("*** SENDING")
+                        print(msg)
                 except:
                     return False
                     #send failed problem with socket return false
@@ -67,18 +75,23 @@ class Message(object):
     '''
     def recv(self):
         data = b""
-        #try:
+   
         #receive data up to 1024
-        data = self.incoming.recv(self.MAX_BUFFER)
+        if(self.cache_mgr != None):
+            #cache the data through a file_socket
+            data = self.cache_mgr.file_socket.read(self.MAX_BUFFER)
+            self.cache_mgr.cache_data(data)
+            if(self.show_input):
+                print("*** RECEIVED AND CACHED")
+                print(data)
+        else:
+            #receive from standard socket
+            data = self.incoming.recv(self.MAX_BUFFER)
+            if(self.show_input):
+                print("*** RECEIVED")
+                print(data)
         if len(data) == 0:
             return False
-        #if cache manager is found store to cache
-        if(self.cache_mgr != None):
-            self.cache_mgr.cache_data(data)
-        #except:
-            #print("*** RECEIVE FAILED ***")
-            #return False
-            #print("\t\tMessage: DataRecv:", len(data))
         #return true or false if data was queued
         self.queue_data(data)
         return True
@@ -115,7 +128,9 @@ class Message(object):
         try:
             self.cache_found = self.cache_mgr.try_open_file()
         except:
-            print("Cache failed to init")
+            raise("Cache failed to init")
+            if(self.show_file_debug):
+                print("Cache failed to init")
 
     '''
     close the file to cache to
@@ -125,15 +140,25 @@ class Message(object):
             self.cache_mgr.close_file()
             self.cache_mgr = None
             
+    '''
+    Reads a file from cache and sends it back to the host
+    '''
     def send_from_cache(self):
         if self.cache_mgr == None:
+            if(self.show_file_debug):
+                print("Cache manager was not set")
             raise Exception("Unable to cache, invalid cache object")
         else:
             content = self.cache_mgr.read_cache()
             for line in content:
                 try:
                     self.outgoing.send(line)
+                    if(self.show_output):
+                        print("*** SENT FROM CACHE")
+                        print(line)
                 except:
+                    if(self.show_file_debug):
+                        print("Exception encountered loadin from cache")
                     raise Exception("Unable to load cache")
             self.cache_mgr.close_file()
     
